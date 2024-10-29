@@ -346,4 +346,17 @@ void TorqueMapComponent::hideDeadzoneTooltip()
     deadzoneTooltip.reset();
 }
 
+/** 
+ * @brief Reset the map to initial state 
+ */ 
+
+void TorqueMapComponent::resetTourqueMap()
+{
+    while(getNumPoints() > 2){ // dont remove first and last
+        removePoint(1); // index 0 is the first (bottom left point), so always take from there until just 1 and 2 remain 
+    }
+    movePoint(0, {0, getPoint(0).getY()}); // reset the dead zone by moving point 0, back to bottom left
+    pointsChanged();
+}
+
 } // namespace gui

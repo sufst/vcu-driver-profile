@@ -39,6 +39,7 @@ private:
     TorqueMapComponent torqueMapComponent;
     juce::ComboBox interpolationCombo;
     ComboBoxAttachment interpolationAttachment;
+    juce::TextButton resetButton{"Clear map"};
 };
 
 } // namespace gui
