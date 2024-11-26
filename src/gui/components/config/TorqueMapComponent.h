@@ -44,6 +44,7 @@ public:
     void valueTreeChildAdded(juce::ValueTree&, juce::ValueTree&) override;
     void
     valueTreeChildRemoved(juce::ValueTree&, juce::ValueTree&, int) override;
+    void resetTourqueMap();
 
 private:
 
