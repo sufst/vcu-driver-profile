@@ -346,4 +346,17 @@ void TorqueMapComponent::hideDeadzoneTooltip()
     deadzoneTooltip.reset();
 }
 
+/** 
+ * @brief Resets the torque map to its default state
+ */
+void TorqueMapComponent::resetTourqueMap()
+{
+    while(getNumPoints() > 2) // keep the first and last points
+    {
+        removePoint(1); // index 0 is 1st point, ergo remove 2nd point
+    }
+    movePoint(0, {0, 0}); // reset deadzone
+    pointsChanged(); // update the graph
+}
+
 } // namespace gui

@@ -27,6 +27,11 @@ InverterEditor::InverterEditor(config::DataModel& configData)
 
     addAndMakeVisible(torqueMapComponent);
     addAndMakeVisible(interpolationCombo);
+    addAndMakeVisible(resetButton);
+    resetButton.onClick = [this]()
+    {
+        torqueMapComponent.resetTourqueMap();
+    };
 }
 
 /**
@@ -71,7 +76,11 @@ void InverterEditor::resized()
 
     footerBounds.removeFromTop(5);
     footerBounds.removeFromBottom(5);
-    interpolationCombo.setBounds(footerBounds);
+    // interpolationCombo.setBounds(footerBounds);
+    interpolationCombo.setBounds(footerBounds.removeFromLeft((footerBounds.getWidth() / 3)*2));
+
+    // Position the reset button in the footer
+    resetButton.setBounds(footerBounds);
 }
 
 } // namespace gui
